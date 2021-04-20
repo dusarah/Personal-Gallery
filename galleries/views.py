@@ -20,7 +20,7 @@ def search_results(request):
         search_term=request.GET.get("image")
         searched_photos=Image.search_by_category(search_term)
         message=f"{search_term}"
-        print(searched_photos)
+        print(searched_photos)        
         return render(request,"search.html",{"message":message,"photos":searched_photos})
     else:
         message="you have no seach Photo"
