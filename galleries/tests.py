@@ -16,7 +16,7 @@ class ImageTestClass(TestCase):
         self.james=Photographer(first_name='James',last_name="Anne")
         self.james.save_photographer()
 
-        self.usa=Location(photo_location='USA')
+        self.usa=Location(photo_location='USA')  
         self.usa.save_location()
 
         self.image=Image(title='leaves',description='beautiful',photographer=self.james,location=self.usa,category=self.nature)
@@ -31,7 +31,7 @@ class ImageTestClass(TestCase):
         self.image.save_image()
         images=Image.objects.all()
         self.assertTrue(len(images)>0)
-
+        
     def test_delete_method(self):
         '''
         test of delete image
@@ -47,7 +47,7 @@ class ImageTestClass(TestCase):
         img=self.image.get_image_by_id(self.image.id)
         image=Image.objects.get(id=self.image.id)
         self.assertTrue(img,image)
-
+    
     def test_filter_by_location(self):
         '''
         test of filter image by location
